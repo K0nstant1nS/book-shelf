@@ -4,6 +4,7 @@
   background: rgba(255, 255, 255, 0.8);
   gap: 20px;
   justify-content: space-between;
-  max-width: 90%;
+  width: 90%;
   padding: 10px 20px;
+  min-height: calc(100vh - var(--main-gap) - var(--search-block-height));
 }

@@ -15,4 +15,9 @@ export default class Api{
     const res = await fetch(`${this.baseUrl}?q=${replaceSpaces(query)}&maxResults=${maxResults}&startIndex=${startIndex}&key=${this.key}`);
     return await this.checkResponse(res)
   }
+
+  public static async getBookById(id: string){
+    const res = await fetch(`${this.baseUrl}/${id}?key=${this.key}`);
+    return await this.checkResponse(res)
+  }
 }

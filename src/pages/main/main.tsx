@@ -2,8 +2,9 @@ import styles from './main.module.css';
 import { useSelector, useDispatch } from "../../services/hooks";
 import { getBooksData } from "../../utils";
 import BookCard from '../../components/book-card/book-card';
-import { UIEvent, UIEventHandler, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { getMoreBooks } from '../../services/actions/books';
+import Loader from '../../components/loader/loader';
 
 const a = { isTrue: true };
 
@@ -31,12 +32,26 @@ useEffect(() => {
   };
 }, [ref.current, booksData.inStore]);
 
+const render = () => {
+  switch (booksData.status){
+    case 'loading': {
+      return <Loader></Loader>
+    }
+    case 'success': {
+      return(
+        <div ref={ref} className={styles.content}>
+            {booksCards}
+        </div>
+      )
+    }
+    default: {
+      return <></>
+    }
+  }
+}
 
-return (
-    <div ref={ref} className={styles.content}>
-      {booksCards}
-    </div>
-)
+
+return render()
 }
 
 export default Main;

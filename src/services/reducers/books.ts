@@ -1,9 +1,10 @@
 import { Reducer } from "redux"
 import { GET_BOOKS, GET_MORE_BOOKS, SET_ERROR, SET_ONLOAD, SET_SUCCESS, TBooksActions } from "../actions/books"
+import { TBook } from "../../utils/types"
 
 export type TBooksState = {
   searchQuery: string,
-  books: any[],
+  books: TBook[],
   totalItems: number,
   inStore: number,
   status: 'error'|'success'|'loading'|null
@@ -25,7 +26,7 @@ export const booksReducer: Reducer<TBooksState, TBooksActions> = (state = initia
         searchQuery: action.payload.query,
         books: action.payload.items,
         inStore: action.payload.loaded,
-        totalItems: action.payload.totalItems
+        totalItems: action.payload.totalItems,
       }
     }
     case GET_MORE_BOOKS: {

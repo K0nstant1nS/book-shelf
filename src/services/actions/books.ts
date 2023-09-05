@@ -34,7 +34,9 @@ export type TBooksActions = IAddBookAction|ISetBooksErrorAction|ISetBooksLoadedA
 
 export const getBooks: AppThunk<void> = (query: string) => {
   return (dispatch: AppDispatch) => {
+    dispatch({type: SET_ONLOAD})
     Api.getBooksByQuery(query).then(data=> {
+      dispatch({type: SET_SUCCESS})
       dispatch({type: GET_BOOKS, payload: {...data, loaded: data.items.length, query}})
     })
     .catch(()=>{

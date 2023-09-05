@@ -12,7 +12,7 @@
 .image{
   padding: 20px 20px 0;
   height: 320px;
-  filter: drop-shadow(10px 10px 4px #aaaaa9ff);
+  filter: var(--image-filter);
   object-fit: cover;
 }
 

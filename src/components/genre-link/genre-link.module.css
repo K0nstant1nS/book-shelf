@@ -1,12 +1,18 @@
 .container{
   background-color: #a7a6a6;
+  cursor: pointer;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: max-content;
+  transition: all 1s;
 }
 
 .content{
   padding: .2rem .4rem;
+}
+
+.container:hover{
+  opacity: .6;
 }
