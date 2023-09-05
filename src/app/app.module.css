@@ -1,0 +1,20 @@
+.app {
+  position: relative;
+  text-align: center;
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-image: url('../images/janko-ferlic-sfL_QOnmy00-unsplash.jpg');
+  opacity: .8;
+}

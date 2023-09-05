@@ -1,0 +1,29 @@
+.card{
+  background-color: #efeeedff;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  max-height: 450px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.image{
+  padding: 20px 20px 0;
+  height: 320px;
+  filter: drop-shadow(10px 10px 4px #aaaaa9ff);
+  object-fit: cover;
+}
+
+.title{
+  padding-bottom: 10px;
+}
+
+.genres{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
