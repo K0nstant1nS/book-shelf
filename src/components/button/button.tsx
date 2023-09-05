@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import styles from './button.module.css'
 
 interface IButtonProps{
-  children: string
+  children?: string,
+  additionalClass?: string
 }
 
-const Button:FC<IButtonProps> = ({children}) => {
+const Button:FC<IButtonProps> = ({children, additionalClass}) => {
 
-  return <button className={styles.button} type='submit'>{children}</button>
+  return <button className={additionalClass} type='submit'>{children}</button>
 }
 
 export default Button;

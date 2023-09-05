@@ -3,6 +3,7 @@ import { TBook } from '../../utils/types';
 import styles from './book-card.module.css';
 import GenreLink from '../genre-link/genre-link';
 import { useNavigate } from 'react-router';
+import OverflowMask from '../overflow-mask/overflow-mask';
 const image  = require('../../images/No_Image_Available.jpg')
 
 type TBookCardProps = {
@@ -20,7 +21,7 @@ const BookCard:FC<TBookCardProps> = ({book}) => {
   const src = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : image;
   const title = book.volumeInfo.title || 'unknown';
   const genres = book.volumeInfo.categories ? book.volumeInfo.categories.map((tag) => {
-    return <GenreLink text={tag}></GenreLink>
+    return <GenreLink key={tag} text={tag}></GenreLink>
   }) : null
   const authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(" ") : 'Unknown';
 
@@ -29,6 +30,7 @@ const BookCard:FC<TBookCardProps> = ({book}) => {
     <span className={styles.genres}>{genres}</span>
     <h3>{authors}</h3>
     <p className={styles.title}>{title}</p>
+    <OverflowMask></OverflowMask>
   </article> );
 }
 

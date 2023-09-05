@@ -7,7 +7,7 @@ import Api from '../../API';
 import { TBook } from '../../utils/types';
 import GenreLink from '../../components/genre-link/genre-link';
 import Loader from '../../components/loader/loader';
-const image  = require('../../images/No_Image_Available.jpg')
+const image  = require('../../images/No_Image_Available.jpg');
 
 type TBookState = {
   status: 'error'|'success'|'loading',
@@ -32,7 +32,8 @@ function BookPage() {
         data: book
       })
     })
-    .catch(()=>{
+    .catch((e)=>{
+      console.log(e)
       setBook({
         ...book,
         status: 'error',
@@ -43,18 +44,23 @@ function BookPage() {
   const render = () => {
      if(book.data){
       const categories = book.data.volumeInfo.categories ? book.data.volumeInfo.categories.map(category => {
+        if(category.includes('/')){
+          return category.split('/').map(item=>{
+            return <GenreLink text={item}></GenreLink>
+          })
+        }
         return <GenreLink text={category}></GenreLink>
       }) : null
       return(
       <div className={styles.container}>
           <div className={styles.imageContainer}>
-          <img className={styles.image} src={book.data.volumeInfo.imageLinks.thumbnail}></img>
+          <img className={styles.image} src={(book.data.volumeInfo.imageLinks && book.data.volumeInfo.imageLinks.thumbnail) || image}></img>
         </div>
         <div className={styles.aboutContainer}>
           <div className={styles.categories}>{categories}</div>
           <h1 className={styles.title}>{book.data.volumeInfo.title}</h1>
           <span className={styles.authors}>{book.data.volumeInfo.authors}</span>
-          <p className={styles.description}>{book.data.volumeInfo.description}</p>
+          <p dangerouslySetInnerHTML={{__html: book.data.volumeInfo.description}} className={styles.description}></p>
         </div>
       </div>
       )

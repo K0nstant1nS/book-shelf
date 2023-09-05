@@ -1,5 +1,3 @@
-import { replaceSpaces } from "../utils";
-
 export default class Api{
   private static key = 'AIzaSyBnx8p_lA2Hwj12oHMnTWm-ypO9jvYdluM'
   private static baseUrl = 'https://www.googleapis.com/books/v1/volumes'
@@ -12,7 +10,8 @@ export default class Api{
   }
 
   public static async getBooksByQuery(query: string, maxResults: number = 20, startIndex:number = 0){
-    const res = await fetch(`${this.baseUrl}?q=${replaceSpaces(query)}&maxResults=${maxResults}&startIndex=${startIndex}&key=${this.key}`);
+    console.log(`${this.baseUrl}?${query}&startIndex=${startIndex}&key=${this.key}`)
+    const res = await fetch(`${this.baseUrl}?${query}&startIndex=${startIndex}&key=${this.key}`);
     return await this.checkResponse(res)
   }
 

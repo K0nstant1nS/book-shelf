@@ -6,6 +6,7 @@
   padding: 40px;
   background-color: #d6cece;
   width: 70%;
+  border-radius: 0 0 20px 20px;
 }
 
 .formContent{
@@ -14,4 +15,44 @@
   gap: 20px;
   width: 90%;
   max-width: 720px;
+}
+
+.search{
+  height: 50px;
+  width: 100%;
+  font-size: 2.5rem;
+  padding-left: 20px;
+  z-index: 1;
+}
+
+.searchSet{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.searchSet select{
+  flex-basis: 49%;
+  height: 40px;
+  font-size: 2rem;
+  padding-left: 20px;
+}
+
+.submitButton {
+  width: 50%;
+  height: 40px;
+  font-size: 2rem;
+  align-self: center;
+  border: 1px solid black;
+  cursor: pointer;
+  background: #22ed18
+}
+
+.inputImage{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
 }

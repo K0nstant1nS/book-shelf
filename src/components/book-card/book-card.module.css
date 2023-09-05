@@ -1,5 +1,7 @@
 .card{
+  position: relative;
   background-color: #efeeedff;
+  z-index: 0;
   gap: 10px;
   display: flex;
   flex-direction: column;
@@ -7,6 +9,10 @@
   max-height: 450px;
   overflow: hidden;
   border-radius: 20px;
+}
+
+.card *{
+  z-index: 2;
 }
 
 .image{
