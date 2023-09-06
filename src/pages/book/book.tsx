@@ -39,12 +39,22 @@ function BookPage() {
 
   const render = () => {
      if(book.data){
+      const added:string[] = []
+      /* Многие жанры приходят в формате жанр/жанр/жанр, думаю уместно их разбить с проверкой на дубликаты*/
       const categories = book.data.volumeInfo.categories ? book.data.volumeInfo.categories.map(category => {
-        if(category.includes('/')){
-          return category.split('/').map(item=>{
+        if(category.includes('/')){ 
+          return category.split(' / ').map(item=>{
+            if(added.includes(item)){
+              return null
+            }
+            added.push(item)
             return <GenreLink text={item}></GenreLink>
           })
         }
+        if(added.includes(category)){
+          return null
+        }
+        added.push(category)
         return <GenreLink text={category}></GenreLink>
       }) : null
       return(

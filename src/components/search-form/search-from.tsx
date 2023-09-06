@@ -10,15 +10,20 @@ const inputImage = require('../../images/search-50.png');
 
 function SearchForm() {
   const [searchValue, setSeachValue] = useState('');
-  const [categoryValue, setCategoryValue] = useState('');
+  const [categoryValue, setCategoryValue] = useState('all');
   const [sortingBy, setSortingBy] = useState('relevance');
   const navigate = useNavigate();
   const ref = useRef<HTMLDivElement|null>(null)
   const dispatch = useDispatch();
   const onSubmit = (e: FormEvent) => {
+    if(searchValue === ''){
+      console.log('incorrect search value')
+      return
+    }
     e.preventDefault()
     dispatch(getBooks(getQueryString(searchValue, categoryValue, sortingBy)))
     navigate('/')
+    setSeachValue('')
   }
 
   useEffect(()=>{
@@ -54,7 +59,7 @@ function SearchForm() {
           <option value="newest">newest</option>
        </select>
       </fieldset>
-      <Button additionalClass={styles.submitButton}>Получить</Button>
+      <Button additionalClass={styles.submitButton} isDisabled={searchValue === ''}>Получить</Button>
     </form>
   </div> );
 }

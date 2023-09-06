@@ -1,11 +1,28 @@
-.content{
+.container{
   display: flex;
-  flex-wrap: wrap;
-  background: rgba(255, 255, 255, 1);
+  flex-direction: column;
   gap: 20px;
-  justify-content: space-between;
+  background: rgba(255, 255, 255, 1);
   width: 90%;
   padding: 10px 20px;
   min-height: calc(100vh - var(--main-gap) - var(--search-block-height));
   border-radius: 20px 20px 0 0;
+  font-size: 2rem
+}
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+  /* width: 90%;
+  padding: 10px 20px;
+  min-height: calc(100vh - var(--main-gap) - var(--search-block-height));
+  border-radius: 20px 20px 0 0; */
+}
+
+@media (max-width: 780px) {
+  .content{
+    justify-content: center;
+  }
 }

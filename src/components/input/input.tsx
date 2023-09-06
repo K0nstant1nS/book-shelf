@@ -1,6 +1,5 @@
-import { ChangeEventHandler, FC, ReactNode, SetStateAction } from "react";
+import { ChangeEventHandler, FC, ReactNode } from "react";
 import styles from './input.module.css'
-import { JsxElement } from "typescript";
 
 type TInputProps = {
   additionalClass?: string,

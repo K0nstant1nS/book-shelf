@@ -11,7 +11,7 @@ export default class Api{
 
   public static async getBooksByQuery(query: string, maxResults: number = 20, startIndex:number = 0){
     console.log(`${this.baseUrl}?${query}&startIndex=${startIndex}&key=${this.key}`)
-    const res = await fetch(`${this.baseUrl}?${query}&startIndex=${startIndex}&key=${this.key}`);
+    const res = await fetch(`${this.baseUrl}?${query}&startIndex=${startIndex}&maxResults=${maxResults}&key=${this.key}`);
     return await this.checkResponse(res)
   }
 

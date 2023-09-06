@@ -40,8 +40,11 @@ const render = () => {
     }
     case 'success': {
       return(
+        <div className={styles.container}>
+        <p><h3>Total items: </h3>{booksData.totalItems}</p>
         <div ref={ref} className={styles.content}>
             {booksCards}
+        </div>
         </div>
       )
     }

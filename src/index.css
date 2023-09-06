@@ -11,6 +11,16 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 10px;
+}
+
 input, select, button {
   border-radius: 10px
+}
+
+@media (max-width: 780px) {
+  html{
+    font-size: 8px;
+  }
 }

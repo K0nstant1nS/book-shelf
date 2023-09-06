@@ -3,6 +3,7 @@
 }
 
 .container{
+  font-size: 2rem;
   display: grid;
   width: 90%;
   grid-template-columns: 40% 60%;
@@ -55,6 +56,25 @@
 
 .authors{
   padding-bottom: 20px;
-  font-size: 1.5rem;
   font-weight: 500;
+}
+
+@media (max-width: 780px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image{
+    max-height: 450px;
+    padding: 20px 0;
+  }
+
+  .aboutContainer{
+    align-items: center;
+  }
+
+  .title{
+    text-align: center;
+  }
 }
