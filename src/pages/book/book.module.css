@@ -1,13 +1,15 @@
 :root{
-  --padding-bottom: 40px
+  --margin-bottom: 40px
 }
 
 .container{
   display: grid;
   width: 90%;
   grid-template-columns: 40% 60%;
-  min-height: calc(100vh - var(--main-gap) - var(--search-block-height) - var(--padding-bottom));
-  padding-bottom: var(--padding-bottom);
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: calc(100vh - var(--main-gap) - var(--search-block-height) - var(--margin-bottom));
+  margin-bottom: var(--margin-bottom);
 }
 
 .imageContainer{

@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './book.module.css'
 import { useParams } from 'react-router';
-import { useSelector } from '../../services/hooks';
-import { getBooksData } from '../../utils';
 import Api from '../../API';
 import { TBook } from '../../utils/types';
 import GenreLink from '../../components/genre-link/genre-link';
@@ -12,12 +10,10 @@ const image  = require('../../images/No_Image_Available.jpg');
 type TBookState = {
   status: 'error'|'success'|'loading',
   data: TBook|null
-
 }
 
 function BookPage() {
   const { id } = useParams();
-  const gamesData = useSelector(getBooksData);
   const [book, setBook] = useState<TBookState>({
     status: 'loading',
     data: null

@@ -4,7 +4,7 @@ import { useDispatch } from "../../services/hooks";
 import { getBooks } from "../../services/actions/books";
 import Button from "../button/button";
 import { useNavigate } from "react-router";
-import { replaceSpaces } from "../../utils";
+import { getQueryString, replaceSpaces } from "../../utils";
 import Input from "../input/input";
 const inputImage = require('../../images/search-50.png');
 
@@ -17,9 +17,7 @@ function SearchForm() {
   const dispatch = useDispatch();
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
-    const subject = categoryValue === 'all' ? '' : `+subject:${categoryValue}`
-    const query = `q=${replaceSpaces(searchValue)}${subject}&orderBy=${sortingBy}`
-    dispatch(getBooks(query))
+    dispatch(getBooks(getQueryString(searchValue, categoryValue, sortingBy)))
     navigate('/')
   }
 
