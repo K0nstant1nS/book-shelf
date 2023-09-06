@@ -6,8 +6,12 @@ export type TBook = {
     categories: Array<string>,
     description: string,
     imageLinks: {
-      smallThumbnail: string,
-      thumbnail: string
+      smallThumbnail?: string,
+      thumbnail?: string,
+      small?: string,
+      medium?: string,
+      large?: string,
+      extraLarge?: string
     }
   }
 }

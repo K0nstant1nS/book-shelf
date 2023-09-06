@@ -48,19 +48,20 @@ function BookPage() {
               return null
             }
             added.push(item)
-            return <GenreLink text={item}></GenreLink>
+            return <GenreLink key={item} clickable text={item}></GenreLink>
           })
         }
         if(added.includes(category)){
           return null
         }
         added.push(category)
-        return <GenreLink text={category}></GenreLink>
+        return <GenreLink key={category} clickable text={category}></GenreLink>
       }) : null
+      const src = book.data.volumeInfo.imageLinks ? book.data.volumeInfo.imageLinks.medium || book.data.volumeInfo.imageLinks.large || book.data.volumeInfo.imageLinks.small || book.data.volumeInfo.imageLinks.extraLarge || book.data.volumeInfo.imageLinks.thumbnail || book.data.volumeInfo.imageLinks.smallThumbnail : image
       return(
       <div className={styles.container}>
           <div className={styles.imageContainer}>
-          <img className={styles.image} src={(book.data.volumeInfo.imageLinks && book.data.volumeInfo.imageLinks.thumbnail) || image}></img>
+          <img className={styles.image} src={src}></img>
         </div>
         <div className={styles.aboutContainer}>
           <div className={styles.categories}>{categories}</div>
@@ -75,7 +76,7 @@ function BookPage() {
   }
 
 
-  return render();
+  return render(); 
 }
 
 export default BookPage;

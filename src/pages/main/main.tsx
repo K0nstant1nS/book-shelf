@@ -5,7 +5,7 @@ import BookCard from '../../components/book-card/book-card';
 import { useRef, useEffect } from 'react';
 import { getMoreBooks } from '../../services/actions/books';
 import Loader from '../../components/loader/loader';
-import Error from '../../components/nothing-found/error';
+import Error from '../../components/error/error';
 
 const a = { isTrue: true };
 
@@ -41,7 +41,7 @@ const render = () => {
     case 'success': {
       return(
         <div className={styles.container}>
-        <p><h3>Total items: </h3>{booksData.totalItems}</p>
+        <p><h3>Loaded: </h3>{booksData.inStore}/{booksData.totalItems}</p>
         <div ref={ref} className={styles.content}>
             {booksCards}
         </div>

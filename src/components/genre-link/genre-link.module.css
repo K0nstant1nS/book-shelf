@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: center;
   width: max-content;
+}
+
+.dynamic{
   transition: all 1s;
 }
 
@@ -16,6 +19,6 @@
   padding: .2rem .4rem;
 }
 
-.container:hover{
+.dynamic:hover{
   opacity: .6;
 }

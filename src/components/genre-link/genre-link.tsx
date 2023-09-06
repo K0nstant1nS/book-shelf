@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MouseEvent } from "react";
 import styles from "./genre-link.module.css";
 import { useDispatch } from "../../services/hooks";
 import { useNavigate } from "react-router";
@@ -6,10 +6,11 @@ import { getQueryString, replaceSpaces } from "../../utils";
 import { getBooks } from "../../services/actions/books";
 
 type TGenreLinkProps = {
-  text: string
+  text: string,
+  clickable?: boolean
 }
 
-const GenreLink: FC<TGenreLinkProps> = ({ text }) => {
+const GenreLink: FC<TGenreLinkProps> = ({ text, clickable = false }) => {
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -19,8 +20,12 @@ const GenreLink: FC<TGenreLinkProps> = ({ text }) => {
     navigate('/')
   }
 
+  const mouseOver = (e: MouseEvent) => {
+    e.preventDefault()
+  }
+
   return (
-    <div onClick={onClick} className={styles.container}>
+    <div onClick={clickable ? onClick : undefined} className={`${styles.container} ${clickable && styles.dynamic}`}>
       <span className={styles.content}>{text}</span>
     </div>
   );

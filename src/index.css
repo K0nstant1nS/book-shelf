@@ -24,3 +24,9 @@ input, select, button {
     font-size: 8px;
   }
 }
+
+@media (max-width: 440px) {
+  html{
+    font-size: 6px;
+  }
+}

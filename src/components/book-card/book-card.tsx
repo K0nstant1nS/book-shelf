@@ -18,7 +18,7 @@ const BookCard:FC<TBookCardProps> = ({book}) => {
     navigate(`book/${book.id}`)
   }
 
-  const src = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : image;
+  const src = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.large || book.volumeInfo.imageLinks.medium || book.volumeInfo.imageLinks.small || book.volumeInfo.imageLinks.extraLarge || book.volumeInfo.imageLinks.thumbnail || book.volumeInfo.imageLinks.smallThumbnail : image
   const title = book.volumeInfo.title || 'unknown';
   const genres = book.volumeInfo.categories ? book.volumeInfo.categories.map((tag) => {
     return <GenreLink key={tag} text={tag}></GenreLink>
