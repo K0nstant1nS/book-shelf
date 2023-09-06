@@ -2,16 +2,18 @@
   position: relative;
   background-color: #efeeedff;
   z-index: 0;
-  gap: 10px;
+  gap: 15px;
   display: flex;
   flex-direction: column;
-  width: 250px;
+  align-items: flex-start;
+  width: 300px;
   max-height: 450px;
   overflow: hidden;
   border-radius: 20px;
   font-size: 18px;
   cursor: pointer;
   transition: opacity .5s;
+  padding: 20px;
 }
 
 .card:hover{
@@ -24,15 +26,21 @@
 
 .image{
   padding: 20px 20px 0;
-  height: 320px;
+  max-width: 100%;
+  align-self: center;
   filter: var(--image-filter);
   object-fit: cover;
 }
 
 .title{
   padding-bottom: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: start;
+}
+
+.authors{
+  text-align: start;
+  text-decoration: underline;
+  color: #bdbebe
 }
 
 .genres{

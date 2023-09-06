@@ -66,7 +66,7 @@ function BookPage() {
         <div className={styles.aboutContainer}>
           <div className={styles.categories}>{categories}</div>
           <h1 className={styles.title}>{book.data.volumeInfo.title}</h1>
-          <span className={styles.authors}>{book.data.volumeInfo.authors}</span>
+          <h2 className={styles.authors}>{book.data.volumeInfo.authors}</h2>
           <p dangerouslySetInnerHTML={{__html: book.data.volumeInfo.description}} className={styles.description}></p>
         </div>
       </div>

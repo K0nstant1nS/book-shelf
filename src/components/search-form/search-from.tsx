@@ -4,7 +4,7 @@ import { useDispatch } from "../../services/hooks";
 import { getBooks } from "../../services/actions/books";
 import Button from "../button/button";
 import { useNavigate } from "react-router";
-import { getQueryString, replaceSpaces } from "../../utils";
+import { getQueryString } from "../../utils";
 import Input from "../input/input";
 const inputImage = require('../../images/search-50.png');
 
