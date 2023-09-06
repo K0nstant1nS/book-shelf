@@ -41,7 +41,7 @@ const render = () => {
     case 'success': {
       return(
         <div className={styles.container}>
-        <p><h3>Loaded: </h3>{booksData.inStore}/{booksData.totalItems}</p>
+        <p><span className={styles.loaded}>Loaded: </span>{booksData.inStore}/{booksData.totalItems}</p>
         <div ref={ref} className={styles.content}>
             {booksCards}
         </div>

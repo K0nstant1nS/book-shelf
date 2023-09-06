@@ -47,7 +47,6 @@ export const getBooks: AppThunk<void> = (query: string) => {
 }
 
 export const getMoreBooks: AppThunk<void> = (query: string, startIndex: number, flag, amount = 20) => {
-  console.log(amount)
   return (dispatch: AppDispatch) => {
     Api.getBooksByQuery(query, amount, startIndex).then(data=>{
       dispatch({type: GET_MORE_BOOKS, payload: {...data, loaded: data.items.length}});

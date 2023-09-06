@@ -15,10 +15,11 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: space-evenly;
-  /* width: 90%;
-  padding: 10px 20px;
-  min-height: calc(100vh - var(--main-gap) - var(--search-block-height));
-  border-radius: 20px 20px 0 0; */
+}
+
+.loaded{
+  font-size: 1.17em;
+  font-weight: 700;
 }
 
 @media (max-width: 780px) {

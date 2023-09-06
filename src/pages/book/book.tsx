@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './book.module.css'
 import { useParams } from 'react-router';
 import Api from '../../API';
@@ -18,6 +18,11 @@ function BookPage() {
     status: 'loading',
     data: null
   });
+  const [isImageLoaded, setIsImageLoaded] = useState(false)
+
+  const onLoad = () => {
+    setIsImageLoaded(true)
+  }
   
   useEffect(()=>{
     Api.getBookById(id!)
@@ -60,8 +65,9 @@ function BookPage() {
       const src = book.data.volumeInfo.imageLinks ? book.data.volumeInfo.imageLinks.medium || book.data.volumeInfo.imageLinks.large || book.data.volumeInfo.imageLinks.small || book.data.volumeInfo.imageLinks.extraLarge || book.data.volumeInfo.imageLinks.thumbnail || book.data.volumeInfo.imageLinks.smallThumbnail : image
       return(
       <div className={styles.container}>
-          <div className={styles.imageContainer}>
-          <img className={styles.image} src={src}></img>
+        <div className={styles.imageContainer}>
+          <img onLoad={onLoad} className={`${styles.image} ${!isImageLoaded && styles.imageLoading}`} src={src}></img>
+          {!isImageLoaded && <Loader></Loader>}
         </div>
         <div className={styles.aboutContainer}>
           <div className={styles.categories}>{categories}</div>
