@@ -27,7 +27,6 @@ function BookPage() {
   }
 
   const closeEventHandler = (e: KeyboardEvent) =>{
-    console.log(e)
     if(e.key === 'Escape'){
       navigate('/')
     }
@@ -36,7 +35,6 @@ function BookPage() {
   useEffect(()=>{
     Api.getBookById(id!)
     .then(book => {
-      console.log(book)
       setBook({
         status: 'success',
         data: book
