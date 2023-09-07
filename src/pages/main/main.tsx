@@ -14,7 +14,7 @@ const booksData = useSelector(getBooksData);
 const dispatch = useDispatch();
 const booksCards = booksData.books.map((item, index)=>(<BookCard key={index} book={item}></BookCard>))
 const ref = useRef<HTMLDivElement>(null)
-const scrollListener = (e: Event) => {
+const scrollListener = () => {
   const { current } = ref;
   if(current){
     const { height, y } = current.getBoundingClientRect();
@@ -24,7 +24,7 @@ const scrollListener = (e: Event) => {
       dispatch(getMoreBooks(booksData.searchQuery, booksData.inStore, a));
     }
   }
-};
+}
 
 useEffect(() => {
   document.addEventListener("scroll", scrollListener);

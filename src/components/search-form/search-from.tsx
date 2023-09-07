@@ -43,7 +43,7 @@ function SearchForm() {
   return ( 
   <div className={styles.form} ref={ref}>
     <form className={styles.formContent} onSubmit={onSubmit}>
-      <Input additionalClass={styles.search} type="text" value={searchValue} onChange={(e)=>setSeachValue(e.target.value)} image={imageNode}/>
+      <Input additionalClass={styles.search} type="text" value={searchValue} onChange={(e)=>setSeachValue(e.target.value)} element={imageNode}/>
       <fieldset className={styles.searchSet}>
         <select value={categoryValue} onChange={(e)=>setCategoryValue(e.target.value)}>
           <option value="all">all</option>

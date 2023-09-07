@@ -5,15 +5,15 @@ type TInputProps = {
   additionalClass?: string,
   value: string,
   onChange: ChangeEventHandler<HTMLInputElement>,
-  image?: ReactNode,
+  element?: ReactNode,
   type: string
 }
 
-const Input: FC<TInputProps> = ({value, onChange, additionalClass, image, type='text'}) => {
+const Input: FC<TInputProps> = ({value, onChange, additionalClass, element, type='text'}) => {
   return ( 
   <div className={styles.container}>
     <input onChange={onChange} value={value} type={type} className={additionalClass}></input>
-    {image}
+    {element}
   </div> );
 }
 

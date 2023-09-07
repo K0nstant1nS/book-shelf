@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './book.module.css'
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import Api from '../../API';
 import { TBook } from '../../utils/types';
 import GenreLink from '../../components/genre-link/genre-link';
@@ -19,9 +19,17 @@ function BookPage() {
     data: null
   });
   const [isImageLoaded, setIsImageLoaded] = useState(false)
+  const navigate = useNavigate();
 
   const onLoad = () => {
     setIsImageLoaded(true)
+  }
+
+  const closeEventHandler = (e: KeyboardEvent) =>{
+    console.log(e)
+    if(e.key === 'Escape'){
+      navigate('/')
+    }
   }
   
   useEffect(()=>{
@@ -41,6 +49,13 @@ function BookPage() {
       })
     })
   }, [])
+
+  useEffect(() => {
+    document.addEventListener('keydown', closeEventHandler)
+    return () => {
+      document.removeEventListener('keydown', closeEventHandler);
+    }
+  })
 
   const render = () => {
      if(book.data){
@@ -66,7 +81,7 @@ function BookPage() {
       return(
       <div className={styles.container}>
         <div className={styles.imageContainer}>
-          <img onLoad={onLoad} className={`${styles.image} ${!isImageLoaded && styles.imageLoading}`} src={src}></img>
+          <img onLoad={onLoad} className={`${styles.image} ${!isImageLoaded && styles.imageLoading}`} src={src} alt='книжная обложка'></img>
           {!isImageLoaded && <Loader></Loader>}
         </div>
         <div className={styles.aboutContainer}>

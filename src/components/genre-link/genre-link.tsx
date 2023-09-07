@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from "react";
+import { FC } from "react";
 import styles from "./genre-link.module.css";
 import { useDispatch } from "../../services/hooks";
 import { useNavigate } from "react-router";
@@ -18,10 +18,6 @@ const GenreLink: FC<TGenreLinkProps> = ({ text, clickable = false }) => {
   const onClick = () => {
     dispatch(getBooks(getQueryString('', replaceSpaces(text))))
     navigate('/')
-  }
-
-  const mouseOver = (e: MouseEvent) => {
-    e.preventDefault()
   }
 
   return (

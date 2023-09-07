@@ -25,7 +25,7 @@ const BookCard:FC<TBookCardProps> = ({book}) => {
   const authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : 'Unknown'
 
   return ( <article onClick={onClick} className={styles.card}>
-    <img className={styles.image} src={src}></img>
+    <img className={styles.image} src={src} alt='книжная обложка'></img>
     <span className={styles.genres}>{genres}</span>
     <p className={styles.authors}>{authors}</p>
     <h4 className={styles.title}>{title}</h4>
