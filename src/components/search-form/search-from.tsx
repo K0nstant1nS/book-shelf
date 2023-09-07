@@ -43,9 +43,9 @@ function SearchForm() {
   return ( 
   <div className={styles.form} ref={ref}>
     <form className={styles.formContent} onSubmit={onSubmit}>
-      <Input additionalClass={styles.search} type="text" value={searchValue} onChange={(e)=>setSeachValue(e.target.value)} element={imageNode}/>
+      <Input name='query' additionalClass={styles.search} type="text" value={searchValue} onChange={(e)=>setSeachValue(e.target.value)} element={imageNode}/>
       <fieldset className={styles.searchSet}>
-        <select value={categoryValue} onChange={(e)=>setCategoryValue(e.target.value)}>
+        <select name="category" value={categoryValue} onChange={(e)=>setCategoryValue(e.target.value)}>
           <option value="all">all</option>
           <option value="art">art</option>
           <option value="biography">biography</option>
@@ -54,7 +54,7 @@ function SearchForm() {
           <option value="medical">medical</option>
           <option value="poetry">poetry</option>
         </select>
-        <select value={sortingBy} onChange={(e)=>setSortingBy(e.target.value)}>
+        <select name='sorting' value={sortingBy} onChange={(e)=>setSortingBy(e.target.value)}>
           <option value="relevance">relevance</option>
           <option value="newest">newest</option>
        </select>
