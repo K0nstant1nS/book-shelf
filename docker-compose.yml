@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   sample:
-    container_name: sample
+    container_name: book-shelf
     build:
       context: .
       dockerfile: Dockerfile
