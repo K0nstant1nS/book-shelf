@@ -5,6 +5,7 @@ import Api from '../../API';
 import { TBook } from '../../utils/types';
 import GenreLink from '../../components/genre-link/genre-link';
 import Loader from '../../components/loader/loader';
+import ErrorPage from '../error/error';
 const image  = require('../../images/No_Image_Available.jpg');
 
 type TBookState = {
@@ -92,6 +93,9 @@ function BookPage() {
         </div>
       </div>
       )
+    }
+    if(book.status === 'error'){
+      return <ErrorPage></ErrorPage>
     }
     return <Loader></Loader>
   }
