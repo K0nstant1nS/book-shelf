@@ -1,10 +1,15 @@
+import { FC } from 'react'
 import styles from './loader.module.css'
 const image = require('../../images/loader.webp')
 
-function Loader() {
+type TLoaderProps = {
+  small?: boolean
+}
+
+const Loader:FC<TLoaderProps> = ({small = false}) => {
   return ( 
-    <div className={styles.container}>
-      <img className={styles.image} src={image} alt='Загрузка'></img> 
+    <div className={`${styles.container} ${!small && styles.big}`}>
+      <img className={`${styles.image} ${small && styles.small}`} src={image} alt='Загрузка'></img> 
     </div>
   );
 }

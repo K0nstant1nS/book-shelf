@@ -11,12 +11,11 @@
 }
 
 .content{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
   gap: 20px;
   justify-content: space-evenly;
 }
-
 
 .loaded{
   font-size: 1.17em;
@@ -26,7 +25,7 @@
 .button{
   width: 100%;
   max-width: 200px;
-  height: 4rem;
+  height: 5rem;
   font-size: 2rem;
   align-self: center;
   border: 1px solid black;
@@ -37,10 +36,4 @@
 
 .button:hover{
   opacity: .6;
-}
-
-@media (max-width: 780px) {
-  .content{
-    justify-content: center;
-  }
 }

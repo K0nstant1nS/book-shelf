@@ -39,14 +39,16 @@
 
 .authors{
   text-align: start;
-  text-decoration: underline;
   color: #bdbebe
 }
 
-.genres{
+.genre{
   display: flex;
   flex-direction: row;
   gap: 5px;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: start;
+  text-decoration: underline;
+  color: #bdbebe
 }

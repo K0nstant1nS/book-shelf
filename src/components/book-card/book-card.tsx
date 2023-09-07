@@ -19,16 +19,13 @@ const BookCard:FC<TBookCardProps> = ({book}) => {
 
   const src = book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.large || book.volumeInfo.imageLinks.medium || book.volumeInfo.imageLinks.small || book.volumeInfo.imageLinks.extraLarge || book.volumeInfo.imageLinks.thumbnail || book.volumeInfo.imageLinks.smallThumbnail : image
   const title = book.volumeInfo.title || 'unknown';
-  const genres = book.volumeInfo.categories ? book.volumeInfo.categories.map((tag) => {
-    return <GenreLink key={tag} text={tag}></GenreLink>
-  }) : null
   const authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : 'Unknown'
 
   return ( <article onClick={onClick} className={styles.card}>
     <img className={styles.image} src={src} alt='книжная обложка'></img>
-    <span className={styles.genres}>{genres}</span>
-    <p className={styles.authors}>{authors}</p>
+    <p className={styles.genre}>{book.volumeInfo.categories ? book.volumeInfo.categories[0] : 'no category'}</p>
     <h4 className={styles.title}>{title}</h4>
+    <p className={styles.authors}>{authors}</p>
   </article> );
 }
 

@@ -2,7 +2,7 @@ import styles from './main.module.css';
 import { useSelector, useDispatch } from "../../services/hooks";
 import { getBooksData } from "../../utils";
 import BookCard from '../../components/book-card/book-card';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { getMoreBooks } from '../../services/actions/books';
 import Loader from '../../components/loader/loader';
 import Error from '../../components/error/error';
@@ -13,6 +13,7 @@ const booksData = useSelector(getBooksData);
 const dispatch = useDispatch();
 const booksCards = booksData.books.map((item, index)=>(<BookCard key={index} book={item}></BookCard>))
 const ref = useRef<HTMLDivElement>(null)
+const [isLoading, setIsLoading] = useState(false)
 /*const scrollListener = () => {                  
   const { current } = ref;
   if(current){
@@ -34,7 +35,8 @@ useEffect(() => {
 */
 
 const onClick = () => {
-  dispatch(getMoreBooks(booksData.searchQuery, booksData.inStore));
+  setIsLoading(true);
+  dispatch(getMoreBooks(booksData.searchQuery, booksData.inStore, ()=>setIsLoading(false)));
 }
 
 const render = () => {
@@ -49,7 +51,7 @@ const render = () => {
         <div ref={ref} className={styles.content}>
             {booksCards}
         </div>
-        <Button additionalClass={styles.button} type='button' onClick={onClick}>загрузить</Button>
+        {isLoading ? <Loader small></Loader> : <Button additionalClass={styles.button} type='button' onClick={onClick}>загрузить</Button>}
         </div>
       )
     }
