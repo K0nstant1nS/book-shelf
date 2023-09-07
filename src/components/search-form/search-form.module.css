@@ -66,6 +66,11 @@
 }
 
 @media (max-width: 780px) {
+
+  .form{
+    width: 100%
+  }
+
   .searchSet{
     flex-direction: column;
     width: 100%;
