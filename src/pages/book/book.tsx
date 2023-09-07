@@ -95,7 +95,9 @@ function BookPage() {
     if(book.status === 'error'){
       return <ErrorPage></ErrorPage>
     }
-    return <Loader></Loader>
+    return(
+      <Loader/>
+    )
   }
 
 

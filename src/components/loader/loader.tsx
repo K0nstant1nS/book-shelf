@@ -8,7 +8,7 @@ type TLoaderProps = {
 
 const Loader:FC<TLoaderProps> = ({small = false}) => {
   return ( 
-    <div className={`${styles.container} ${!small && styles.big}`}>
+    <div className={`${styles.container}`}>
       <img className={`${styles.image} ${small && styles.small}`} src={image} alt='Загрузка'></img> 
     </div>
   );

@@ -42,7 +42,11 @@ const onClick = () => {
 const render = () => {
   switch (booksData.status){
     case 'loading': {
-      return <Loader></Loader>
+      return (
+        <div className={styles.container}>
+          <Loader></Loader>
+        </div>
+      )
     }
     case 'success': {
       return(
