@@ -1,4 +1,3 @@
-import { TBooksState } from "../services/reducers/books";
 import { RootState } from "../services/store/types";
 
 export const getBooksData = (state:RootState) => (state.booksData);
