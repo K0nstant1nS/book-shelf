@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { TBook } from '../../utils/types';
 import styles from './book-card.module.css';
-import GenreLink from '../genre-link/genre-link';
 import { useNavigate } from 'react-router';
 const image  = require('../../images/No_Image_Available.jpg')
 
