@@ -17,9 +17,26 @@
   justify-content: space-evenly;
 }
 
+
 .loaded{
   font-size: 1.17em;
   font-weight: 700;
+}
+
+.button{
+  width: 100%;
+  max-width: 200px;
+  height: 4rem;
+  font-size: 2rem;
+  align-self: center;
+  border: 1px solid black;
+  cursor: pointer;
+  background: #c7d2c7;
+  transition: opacity .5s;
+}
+
+.button:hover{
+  opacity: .6;
 }
 
 @media (max-width: 780px) {

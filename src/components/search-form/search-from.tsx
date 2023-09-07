@@ -59,7 +59,7 @@ function SearchForm() {
           <option value="newest">newest</option>
        </select>
       </fieldset>
-      <Button additionalClass={styles.submitButton} isDisabled={searchValue === ''}>Получить</Button>
+      <Button additionalClass={styles.submitButton} isDisabled={searchValue === ''} type="submit">Получить</Button>
     </form>
   </div> );
 }

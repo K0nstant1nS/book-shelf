@@ -9,7 +9,7 @@ export default class Api{
       : Promise.reject(new Error("Ошибка при попытке получить данные"));
   }
 
-  public static async getBooksByQuery(query: string, maxResults: number = 20, startIndex:number = 0){
+  public static async getBooksByQuery(query: string, maxResults: number = 30, startIndex:number = 0){
     const res = await fetch(`${this.baseUrl}?${query}&startIndex=${startIndex}&maxResults=${maxResults}&key=${this.key}`);
     return await this.checkResponse(res)
   }
